@@ -1,0 +1,111 @@
+/* RESET */
+html,
+body,
+header,
+main,
+footer,
+article,
+div,
+span,
+p,
+a,
+figure,
+img,
+small,
+ul {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Trebuchet MS', Arial, sans-serif;
+  text-decoration: none;
+  outline: none;
+}
+
+/* LAYOUT */
+html,
+body {
+    --black: #1f1f23;
+    --grey: #e0e0e5;
+  
+    height: 100%;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    display: grid;
+    place-items: center;
+}
+  
+main {
+    background: url(img/background.svg);
+    width: 375px;
+    height: 812px;
+}
+
+.container {
+    max-width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  
+    color: var(--grey);
+}
+
+/* USER-GITHUB-AVATAR */
+.user-github-avatar {
+    width: 10rem;
+    margin: 11.5rem auto 0;
+    
+    position: relative;
+}
+
+.user-github-avatar .seal-img {
+    position: absolute;
+    top: -15px;
+    z-index: 1;
+}
+
+.user-github-avatar .avatar-img {
+    width: 10rem;
+    height: 11.5rem;
+    object-fit: cover;
+    
+    clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+}
+
+/* USER-GITHUB-INFO */
+.user-github-info h1 {
+    font-size: 1.5rem;
+      
+    margin-top: 1.5rem;
+}
+
+.user-github-info p {
+    margin-top: 2rem;
+}
+      
+.user-github-info a {
+    color: var(--grey);
+    text-decoration: none;
+      
+    margin-top: 0.25rem;
+      
+    display: flex;
+    gap: 0.75rem;
+      
+    justify-content: center;
+    align-items: center;
+}
+
+/* USER-MEDIA-INFO */
+.user-social-media ul {
+    margin-top: 4rem;
+      
+    list-style: none;
+    padding: 0;
+      
+    display: flex;
+    gap: 0.5rem;
+      
+    justify-content: center;
+}
