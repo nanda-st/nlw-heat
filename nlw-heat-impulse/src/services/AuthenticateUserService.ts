@@ -1,4 +1,5 @@
 import axios from "axios";
+import prismaClient from "../prisma";
 
 
 interface IAccessTokenResponse {
@@ -29,14 +30,14 @@ class AuthenticateUserService {
                 },
             });
 
-            const response =
+            const res =
                 await axios.get<IUserResponse>("https://api.github.com/user", {
                     headers: {
                         authorization: "Bearer " + accessTokenResponse.access_token
                     },
                 });
         
-        return response.data
+        return res.data
     }
 }
 
