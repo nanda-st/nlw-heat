@@ -11,7 +11,7 @@ router.post("/authenticate", new AuthenticateUserController().handle)
 
 router.post("/messages", ensureAuthenticated, new CreateMessageController().handle)
 
-router.get("/messages/recents", new GetRecentMessagesController().handle)
+router.get("/messages/recent", new GetRecentMessagesController().handle)
 
 router.get("/profile", ensureAuthenticated, new GetUserProfileController().handle)
 
