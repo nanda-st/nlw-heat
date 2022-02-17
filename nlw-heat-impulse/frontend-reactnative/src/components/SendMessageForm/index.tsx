@@ -21,7 +21,7 @@ export function SendMessageForm() {
             
             setMessage('');
             Keyboard.dismiss();
-            
+
             setSendingMessage(false);
             Alert.alert('Mensagem enviada!')
         } else {
@@ -49,6 +49,7 @@ export function SendMessageForm() {
                 color={COLORS.WHITE}
                 backgroundColor={COLORS.PINK}
                 isLoading={sendingMessage}
+                onPress={handleMessageSubmit}
             />
         </View>    
     )
