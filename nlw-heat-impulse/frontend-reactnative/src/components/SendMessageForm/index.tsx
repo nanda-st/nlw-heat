@@ -7,50 +7,48 @@ import { Button } from '../Button';
 
 import { styles } from './styles';
 
-
 export function SendMessageForm() {
-    const [message, setMessage] = useState('');
-    const [sendingMessage, setSendingMessage] = useState(false);
+  const [message, setMessage] = useState('');
+  const [sendingMessage, setSendingMessage] = useState(false);
 
-    async function handleMessageSubmit() {
-        const messageFormatted = message.trim();
+  async function handleMessageSubmit() {
+    const messageFormatted = message.trim();
 
-        if (messageFormatted.length > 0) {
-            setSendingMessage(true);
-            await api.post('/messages', { message: messageFormatted });
-            
-            setMessage('');
-            Keyboard.dismiss();
+    if (messageFormatted.length > 0) {
+      setSendingMessage(true);
+      await api.post('/messages', { message: messageFormatted });
 
-            setSendingMessage(false);
-            Alert.alert('Mensagem enviada!')
-        } else {
-            Alert.alert('Escreva uma mensagem.')
-        }
+      setMessage('');
+      Keyboard.dismiss();
 
+      setSendingMessage(false);
+      Alert.alert('Mensagem enviada!');
+    } else {
+      Alert.alert('Escreva uma mensagem.');
     }
+  }
 
-    return (
-        <View style={styles.container}>
-            <TextInput
-                keyboardAppearance='dark'
-                placeholder='Qual sua expectativa para o evento?'
-                placeholderTextColor={COLORS.GRAY_PRIMARY}
-                multiline
-                maxLength={140}
-                value={message}
-                onChangeText={setMessage}
-                style={styles.input}
-                editable={!sendingMessage}
-            />
-            
-            <Button
-                title='ENVIAR MENSAGEM'
-                color={COLORS.WHITE}
-                backgroundColor={COLORS.PINK}
-                isLoading={sendingMessage}
-                onPress={handleMessageSubmit}
-            />
-        </View>    
-    )
+  return (
+    <View style={styles.container}>
+      <TextInput
+        keyboardAppearance='dark'
+        placeholder='Qual sua expectativa para o evento?'
+        placeholderTextColor={COLORS.GRAY_PRIMARY}
+        multiline
+        maxLength={140}
+        value={message}
+        onChangeText={setMessage}
+        style={styles.input}
+        editable={!sendingMessage}
+      />
+
+      <Button
+        title='ENVIAR MENSAGEM'
+        color={COLORS.WHITE}
+        backgroundColor={COLORS.PINK}
+        isLoading={sendingMessage}
+        onPress={handleMessageSubmit}
+      />
+    </View>
+  );
 }
